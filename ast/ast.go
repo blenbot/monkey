@@ -17,12 +17,12 @@ type Expression interface {
 }
 
 type Program struct {
-	statements []Statement
+	Statements []Statement
 }
 
 func (p *Program) TokenLiteral() string {
-	if len(p.statements) > 0 {
-		return p.statements[0].TokenLiteral()
+	if len(p.Statements) > 0 {
+		return p.Statements[0].TokenLiteral()
 	} else {
 		return ""
 	}
@@ -35,17 +35,17 @@ type LetStatement struct {
 }
 
 type Identifier struct {
-	Token token.Token
-	Value string
+	Token      token.Token
+	IdentValue string
 }
 
-func (l *LetStatement) statementNode()
+func (l *LetStatement) statementNode() {}
 
 func (l *LetStatement) TokenLiteral() string {
 	return l.Token.Literal
 }
 
-func (i *Identifier) expressionNode()
+func (i *Identifier) expressionNode() {}
 
 func (i *Identifier) TokenLiteral() string {
 	return i.Token.Literal
